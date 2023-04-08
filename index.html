@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+            body{
+                height: 100vh;
+                overflow-y: hidden;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                background-color: yellow;
+                overflow: hidden;
+            }
+            #homepage {
+                font-family: 'Press Start 2P', cursive;
+                width: 100%;
+                line-height: 1.6rem;
+            }
+            #homepage div{
+                font-size: 1.9rem;
+                margin-bottom: 14px;
+                line-height: 2.5rem;
+            }
+            #btn{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                position: absolute;
+                bottom: 30px;
+            }
+            #play{
+                padding: 10px 25px;
+                color: white;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 1rem;
+                letter-spacing: 1.4px;
+                cursor: pointer;
+                background-color: rgb(54, 40, 247);
+            }
+            #play:hover{
+                background-color: black;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="homepage">
+            <div> Welcome to Drum Kit</div>Click on play button to proceed further
+            <form id="btn" action="./drum.html">
+                <button id="play">Play</button>
+            </form>
+        </div>
+    </body>
+
+</html>

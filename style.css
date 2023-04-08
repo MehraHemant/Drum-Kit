@@ -1,0 +1,77 @@
+body {
+  display: flex;
+  background-color: yellow;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.instrument {
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.instrument .zoom {
+  background-color: rgb(207, 73, 174);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 4px 4px 10px 2px rgb(66, 66, 66);
+}
+.instrument img {
+  height: 140px;
+  width: 140px;
+  transition: all 0.2s;
+}
+.instrument:active {
+  position: relative;
+}
+.instrument:active .zoom {
+  box-shadow: 1px 1px 2px -1px rgb(66, 66, 66);
+}
+.instrument:active img {
+  height: 130px;
+  width: 130px;
+}
+.name{
+  font: 500;
+  font-family: ubuntu;
+  font-size: 18px;
+}
+#buttons {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 5px;
+}
+#shuffle,
+#stop,
+#repeat {
+  background-color: rgb(255, 42, 42);
+  height: 30px;
+  padding: 7px;
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: 4px 4px 7px -1px black;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-inline: 8px;
+}
+#shuffle:active,
+#stop:active,
+#repeat:active {
+  box-shadow: 4px 4px 7px -1px transparent;
+}
