@@ -13,38 +13,37 @@
     background: linear-gradient(to right, orange, yellow)
 }
 .instrument{
-    height: 130px;
-    width: 130px;
+    height: 135px;
+    width: 135px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 8px;
-    
+    margin: 8px;    
 }
 .zoom{
-    /* height: 120px; */
-    padding: 18px;
-    background-color: rgb(207, 71, 71);
-    /* width: 120px; */
     border-radius: 50%;
+    height: 120px;
+    width: 120px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin: 10px; */
+    flex-direction: column;
+    padding: 8px;
+    background-color: rgb(207, 71, 71);
     box-shadow: 5px 4px 6px 1px rgb(66, 66, 66);
     transition: all 0.2s;
 }
 .zoom img{
     height: 90px;
     width: 90px;
+    transition: all 0.2s;
 }
 .zoom:active{
     box-shadow: 1px 1px 1px -2px rgb(66, 66, 66);
-    /* height: 117px;
-    width: 117px; */
+    height: 113px;
+    width: 113px;
 }
 .zoom:active img{
     height: 83px;
