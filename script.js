@@ -2,20 +2,21 @@ let audio = Array.from(document.getElementsByClassName('audio'));
 let audioElement = new Audio('');
 
 let sounds = [
-    { name: 'Bass', filePath: 'Sounds/bass.wav', imgPath: 'Icons/bass.png', key: '97' },
-    { name: 'Hi-Hat', filePath: 'Sounds/hi-hat.wav', imgPath: "Icons/hi-hat.png", key: '115' },
-    { name: 'Clarinet', filePath: 'Sounds/clarinet.wav', imgPath: "Icons/clarinet.png", key: '100' },
-    { name: 'Tom_1', filePath: 'Sounds/tom_1.wav', imgPath: "Icons/snare.png", key: '102' },
-    { name: 'Tom_2', filePath: 'Sounds/tom_2.wav', imgPath: "Icons/snare.png", key: '106' },
-    { name: 'Brass', filePath: 'Sounds/brass.wav', imgPath: "Icons/brass.png", key: '107' },
-    { name: 'Clap', filePath: 'Sounds/clap.wav', imgPath: "Icons/clap.png", key: '108' }
+    { name: 'Bass', filePath: 'Sounds/bass.wav', imgPath: 'Icons/bass.png', key: '97', keyIcon: 'Icons/key_A.png' },
+    { name: 'Hi-Hat', filePath: 'Sounds/hi-hat.wav', imgPath: "Icons/hi-hat.png", key: '115', keyIcon: 'Icons/key_S.png' },
+    { name: 'Clarinet', filePath: 'Sounds/clarinet.wav', imgPath: "Icons/clarinet.png", key: '100', keyIcon: 'Icons/key_D.png' },
+    { name: 'Tom_1', filePath: 'Sounds/tom_1.wav', imgPath: "Icons/snare.png", key: '102', keyIcon: 'Icons/key_F.png' },
+    { name: 'Tom_2', filePath: 'Sounds/tom_2.wav', imgPath: "Icons/snare.png", key: '106', keyIcon: 'Icons/key_J.png' },
+    { name: 'Brass', filePath: 'Sounds/brass.wav', imgPath: "Icons/brass.png", key: '107', keyIcon: 'Icons/key_K.png' },
+    { name: 'Clap', filePath: 'Sounds/clap.wav', imgPath: "Icons/clap.png", key: '108', keyIcon: 'Icons/key_L.png' }
 ]
 // Data Insertion in HTML
 let instrument = Array.from(document.getElementsByClassName('instrument'));
 instrument.forEach((element, i) => {
-    element.getElementsByTagName('img')[0].src = sounds[i].imgPath;
-    element.getElementsByClassName('name')[0].innerHTML = sounds[i].name;
     element.getElementsByClassName('audio')[0].src = sounds[i].filePath;
+    element.getElementsByTagName('img')[0].src = sounds[i].imgPath;
+    element.getElementsByTagName('img')[1].src = sounds[i].keyIcon;
+    element.getElementsByClassName('name')[0].innerHTML = sounds[i].name;
     element.getElementsByClassName('audio')[0].id = sounds[i].key;
 });
 
@@ -27,6 +28,21 @@ let bgSounds = [
     { sound: 'loopSound/13.wav' }, { sound: 'loopSound/14.wav' }, { sound: 'loopSound/15.wav' },
     { sound: 'loopSound/16.wav' }, { sound: 'loopSound/17.wav' }, { sound: 'loopSound/18.wav' },
 ]
+
+
+// playing with mouse
+instrument.forEach((element, i) => {
+    element.addEventListener('click', () => {
+        audio[i].currentTime = 0;
+        audio[i].play();
+        if (repeat.classList.contains('on')) {
+            audio[i].loop = true;
+        }
+        else {
+            audio[i].loop = false;
+        }
+    })
+})
 
 // Repeat onclick
 let repeat = document.getElementById('repeat');
@@ -87,19 +103,6 @@ let handleStop = () => {
 
 
 
-// playing with mouse
-instrument.forEach((element, i) => {
-    element.addEventListener('click', () => {
-        audio[i].currentTime = 0;
-        audio[i].play();
-        if (repeat.classList.contains('on')) {
-            audio[i].loop = true;
-        }
-        else {
-            audio[i].loop = false;
-        }
-    })
-})
 
 // playing with keyboard
 document.addEventListener('keypress', () => {

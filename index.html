@@ -13,7 +13,9 @@
                 overflow-y: hidden;
                 display: flex;
                 align-items: center;
+                flex-direction: column;
                 text-align: center;
+                justify-content: center;
                 background-color: yellow;
                 overflow: hidden;
             }
@@ -46,7 +48,25 @@
             }
             #play:hover{
                 background-color: black;
-
+            }
+            #instructions{
+                padding: 20px;
+                border-radius: 8px;
+                list-style-position: inside;
+                width: 75%;
+                text-align: start;
+                backdrop-filter: blur(10px);
+                background: #0000005c;
+            }
+            #instructions h2{
+                font-size: 24px;
+                text-align: center;
+                
+            }
+            #instructions li{
+                line-height: 1.5rem;
+                font-size: 17px;
+                font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
             }
         </style>
     </head>
@@ -56,8 +76,18 @@
             <div> Welcome to Drum Kit</div>Click on play button to proceed further
             <form id="btn" action="./drum.html">
                 <button id="play">Play</button>
-            </form>
+            </form>            
         </div>
+        <ul id="instructions"><h2>Instructions to play</h2> 
+            <li>You can play any instrument by clicking on it or by pressing the key that is written over the instrument.</li>
+            <li>Click on the menu button on the right corner of the window, to get more options to play.</li>
+            <li>After clicking on the menu button you'll get three buttons. i.e. repeat, shuffle, and play/stop.</li>
+            <li>When you click on the repeat button and play a tone, It'll run in a loop. </li>
+            <li>To stop the loop, again click on the repeat button when it turns red click on the instrument you want to stop.</li>
+            <li>Shuffle button shuffle the background music and play it in a loop.</li>
+            <li>When you click on shuffle the play button turn to stop button, you can stop background music by clicking this stop button.</li>
+           <li>When you again click on play button it'll play the last background music.</li> 
+        </ul>
     </body>
 
 </html>
