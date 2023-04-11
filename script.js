@@ -1,12 +1,52 @@
 let audio = Array.from(document.getElementsByClassName('audio'));
 let audioElement = new Audio('');
 
+// const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+const numBalls = 50;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+  let ball = document.createElement("div");
+  ball.classList.add("ball");
+  ball.style.background = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+//   ball.style.background = colors[Math.floor(Math.random()*colors.length-1)]
+  ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+  ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+  ball.style.transform = `scale(${Math.random()})`;
+  ball.style.width = `${Math.random()}em`;
+  ball.style.height = ball.style.width;
+  balls.push(ball);
+  document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+  let to = {
+    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+    y: Math.random() * 12
+  };
+
+  let anim = el.animate(
+    [
+      { transform: "translate(0, 0)" },
+      { transform: `translate(${to.x}rem, ${to.y}rem)` }
+    ],
+    {
+      duration: (Math.random() + 1) * 2000, // random duration
+      direction: "alternate",
+      fill: "both",
+      iterations: Infinity,
+      easing: "ease-in-out"
+    }
+  );
+});
+
 let sounds = [
     { name: 'Bass', filePath: 'Sounds/bass.wav', imgPath: 'Icons/bass.png', key: '97', keyIcon: 'Icons/key_A.png' },
     { name: 'Hi-Hat', filePath: 'Sounds/hi-hat.wav', imgPath: "Icons/hi-hat.png", key: '115', keyIcon: 'Icons/key_S.png' },
     { name: 'Clarinet', filePath: 'Sounds/clarinet.wav', imgPath: "Icons/clarinet.png", key: '100', keyIcon: 'Icons/key_D.png' },
-    { name: 'Tom_1', filePath: 'Sounds/tom_1.wav', imgPath: "Icons/snare.png", key: '102', keyIcon: 'Icons/key_F.png' },
-    { name: 'Tom_2', filePath: 'Sounds/tom_2.wav', imgPath: "Icons/snare.png", key: '106', keyIcon: 'Icons/key_J.png' },
+    { name: 'Tom', filePath: 'Sounds/tom_1.wav', imgPath: "Icons/snare.png", key: '102', keyIcon: 'Icons/key_F.png' },
+    { name: 'Tom Echo', filePath: 'Sounds/tom_2.wav', imgPath: "Icons/snare.png", key: '106', keyIcon: 'Icons/key_J.png' },
     { name: 'Brass', filePath: 'Sounds/brass.wav', imgPath: "Icons/brass.png", key: '107', keyIcon: 'Icons/key_K.png' },
     { name: 'Clap', filePath: 'Sounds/clap.wav', imgPath: "Icons/clap.png", key: '108', keyIcon: 'Icons/key_L.png' }
 ]
@@ -71,7 +111,7 @@ let stop = document.getElementById('stop');
 let shuffle = document.getElementById('shuffle');
 let handleShuffle = () => {
     i = Math.floor(Math.random() * 17 + 1);
-    console.log(i)
+    // console.log(i)
     audioElement.src = bgSounds[i].sound;
     audioElement.play();
     audioElement.loop = true;
@@ -129,7 +169,7 @@ document.addEventListener('keypress', () => {
 let list = document.getElementById('list');
 let buttons = document.getElementById('buttons')
 list.addEventListener('click', ()=>{
-    console.log(list.classList);
+    // console.log(list.classList);
     if(list.classList != ('on')){
         list.classList = 'on';
         list.style.backgroundColor ='#2f752f';
